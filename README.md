@@ -1,9 +1,13 @@
-# How to install 
+# anon_chat_room_management_service
+room management service for AnonChat mobile application
+
+
+## How to install 
 1. git clone https://github.com/aouledissa-yousri/express-typescript-project-skeleton
 2. cd <cloned_repository_directory>
 3. npm install
 
-# commands
+## commands
 
 1. Controllers:
     * npm run create-controller <controller_name> (create controller)
@@ -18,8 +22,3 @@
     * npm run delete-model <model_name> (delete model)
 
 4. run server: npm run start <port-number>
-
-# optional (recommended)
-
-* delete default controller, service and model (MainController, MainService, MainModel)
-* change folder's name to your project's name

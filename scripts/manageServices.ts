@@ -4,7 +4,7 @@ import colors from "colors"
 colors.enable()
 
 let operation = process.argv[2]
-let serviceName = process.argv[3].charAt(0).toUpperCase() + process.argv[3].substring(1).toLowerCase() + "Service"
+let serviceName = process.argv[3].charAt(0).toUpperCase() + process.argv[3].substring(1) + "Service"
 
 
 if(operation == "create" || operation == "c"){

@@ -3,7 +3,7 @@ import colors from "colors"
 
 colors.enable()
 let operation = process.argv[2]
-let controllerName = process.argv[3].charAt(0).toUpperCase() + process.argv[3].substring(1).toLowerCase() + "Controller"
+let controllerName = process.argv[3].charAt(0).toUpperCase() + process.argv[3].substring(1) + "Controller"
 let controllerRouteName = controllerName.charAt(0).toLowerCase() + controllerName.substring(1) + "Routes"
 
 if(operation == "create" || operation == "c"){
