@@ -7,6 +7,7 @@
     "test": "jest",
     "start": "ts-node-dev --respawn src/main.ts",
     "devStart": "nodemon --exec ts-node-dev src/main.ts",
+    "migrate": "ts-node src/migrate.ts",
     "create-controller": "ts-node scripts/manageControllers.ts create",
     "create-model": "ts-node scripts/manageModels.ts create",
     "create-service": "ts-node scripts/manageServices.ts create",

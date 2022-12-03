@@ -1,6 +1,6 @@
 import { Room } from './Room';
 
-export class PrivateRoom extends Room{
+export class PublicRoom extends Room{
 
     
 }
