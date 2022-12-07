@@ -5,6 +5,6 @@ let privateRoomControllerRoutes = express.Router()
 
 //put your routes here
 
-privateRoomControllerRoutes.get("/", (request, response) => response.send("Express TS"))
+privateRoomControllerRoutes.post("/create", (request, response) => PrivateRoomController.createRoom(request.headers.token, request.body).then(result => response.send(result)))
 
 export { privateRoomControllerRoutes }

@@ -5,16 +5,30 @@ import { Room } from "./Room";
 @Unique(["username"])
 export class User {
 
-    @PrimaryGeneratedColumn() id: number
-    @Column({name: "username"}) username: string
-    @Column() password: string
-    @Column() salt: string
+    @PrimaryGeneratedColumn("increment") id: number
+    @Column({name: "username"}) private username: string
+    @Column() private password: string
+    @Column() private salt: string
 
     @ManyToMany(() => Room)
     @JoinTable() privateSubscribers: Room[]
 
     @ManyToMany(() => Room)
     @JoinTable() publicSubscribers: Room[]
+
+
+    public getId(): number{
+        return this.id
+    }
+
+
+    public getUsername(): string{
+        return this.username
+    }
+
+    public setUsername(username: string){
+        this.username = username
+    }
 
 
 }

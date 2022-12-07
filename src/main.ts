@@ -19,10 +19,14 @@ const main = async () => {
 
     //main routes
     app.use("/", routes)
+    
 
     //run express server
     app.listen(port, () => {
-        console.log("Application is running on http://localhost:"+port)
+        //establish database connection 
+        AppDataSource.initialize().then(() => {
+            console.log("Application is running on http://localhost:"+port)
+        }).catch(error => console.log(error))
     })
 }
 

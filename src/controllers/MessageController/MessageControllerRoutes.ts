@@ -5,6 +5,6 @@ let messageControllerRoutes = express.Router()
 
 //put your routes here
 
-messageControllerRoutes.get("/", (request, response) => response.send("Express TS"))
+messageControllerRoutes.post("/message", (request, response) => MessageController.sendMessage().then())
 
 export { messageControllerRoutes }

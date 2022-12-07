@@ -1,9 +1,11 @@
+import "reflect-metadata"
 import { DataSource } from "typeorm";
 import { Message } from "./models/Message";
 import { PrivateRoom } from './models/PrivateRoom';
 import { PublicRoom } from "./models/PublicRoom";
 import { Room } from './models/Room';
 import { User } from './models/User';
+import { Token } from './models/Token';
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -14,7 +16,7 @@ export const AppDataSource = new DataSource({
     database: "anon_chat_database",
     synchronize: true,
     logging: true,
-    entities: [Message, PrivateRoom, PublicRoom, Room, User],
+    entities: [Message, PrivateRoom, PublicRoom, Room, User, Token],
     subscribers: [],
     migrations: [],
 })
