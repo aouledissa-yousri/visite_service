@@ -14,4 +14,26 @@ export abstract class PrivateRoomService {
 
         return {"message": "Room created successfully"}
     }
+
+    public static async joinRoom(userId: number, roomId: number){
+
+        const user = await AppDataSource.manager.findOne(User, {where: {id: userId}})
+        const room = await AppDataSource.manager.findOne(Room, {where: {id: roomId}})
+
+        await AppDataSource.createQueryBuilder().relation(User, "privateSubscribers").of(user).add(room)
+
+        return {"message": "You have joined room " + roomId}
+
+    }
+
+    public static async leaveRoom(userId: number, roomId: number){
+
+        const user = await AppDataSource.manager.findOne(User, {where: {id: userId}})
+        const room = await AppDataSource.manager.findOne(Room, {where: {id: roomId}})
+
+        AppDataSource.createQueryBuilder().relation(User, "privateSubscribers").of(user).remove(room)
+
+        return {"message": "You have left room " + roomId}
+
+    }
 }

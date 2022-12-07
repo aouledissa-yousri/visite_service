@@ -12,6 +12,7 @@ roomControllerRoutes.get("/", (request, response) => RoomController.getRooms().t
 roomControllerRoutes.post("/:id/message", (request, response) => MessageController.sendMessage(request.headers.token, request.body, parseInt(request.params.id)).then(result => response.send(result)))
 roomControllerRoutes.get("/:id/message", (request, response) => MessageController.getMessages(request.headers.token, parseInt(request.params.id)).then(result => response.send(result)))
 
+
 roomControllerRoutes.use("/private", privateRoomControllerRoutes)
 roomControllerRoutes.use("/public", publicRoomControllerRoutes)
 
