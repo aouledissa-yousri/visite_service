@@ -7,7 +7,7 @@ import { checkAccessToken } from '../../decorators';
 export abstract class RoomController {
 
     @checkAccessToken()
-    public static async getRooms(){
+    public static async getRooms(token: any){
         return await RoomService.getRooms()
     }
 

@@ -8,7 +8,7 @@ let roomControllerRoutes = express.Router()
 
 //put your routes here
 
-roomControllerRoutes.get("/", (request, response) => RoomController.getRooms().then(result => response.send(result)))
+roomControllerRoutes.get("/", (request, response) => RoomController.getRooms(request.headers.token).then(result => response.send(result)))
 roomControllerRoutes.post("/:id/message", (request, response) => MessageController.sendMessage(request.headers.token, request.body, parseInt(request.params.id)).then(result => response.send(result)))
 roomControllerRoutes.get("/:id/message", (request, response) => MessageController.getMessages(request.headers.token, parseInt(request.params.id)).then(result => response.send(result)))
 
