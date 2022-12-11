@@ -22,7 +22,7 @@ export abstract class MessageService {
     public static async getMessages(token: any, roomId: number){
 
         const room = await AppDataSource.manager.findOne(Room, {where: {id: roomId}})
-        const messages = await AppDataSource.manager.find(Message, {where: {room : {id: roomId}}})
+        const messages = await AppDataSource.manager.find(Message, {relations: ["user"], where: {room : {id: roomId}}})
         return messages
 
     }
